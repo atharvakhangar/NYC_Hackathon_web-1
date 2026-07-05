@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "projectwindow.h"
 #include <QLabel>
 #include <QPushButton>
 #include <QTextEdit>
@@ -90,8 +90,15 @@ MainWindow::MainWindow(QWidget *parent)
     topLayout->addStretch();
     topLayout->addWidget(profile);
 
-    QPushButton *createButton =
-        new QPushButton("Create Your First Project");
+    QPushButton *createButton = new QPushButton("Create Your First Project");
+
+    connect(createButton, &QPushButton::clicked, this, [=]()
+            {
+                ProjectWindow *window = new ProjectWindow();
+                window->show();
+
+                this->hide();
+            });
 
 
     QPushButton *joinButton =

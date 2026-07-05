@@ -6,10 +6,10 @@
 class ProjectWindow : public QMainWindow
 {
     Q_OBJECT
+
 public:
     explicit ProjectWindow(QWidget *parent = nullptr);
-
-signals:
+    ~ProjectWindow();
 };
 
-#endif // PROJECTWINDOW_H
+#endif
