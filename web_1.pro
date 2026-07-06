@@ -27,7 +27,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     ../logo.png \
-    logo.png
+    logo.png \
+    style.qss
 
 RESOURCES += \
     resources.qrc

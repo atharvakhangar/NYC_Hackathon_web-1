@@ -38,35 +38,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     QLabel *username = new QLabel("Username");
     QLabel *projects = new QLabel("Projects : 0");
-    username->setStyleSheet(
-        "font-size:20px;"
-        "font-weight:bold;"
-        );
-
-    projects->setStyleSheet(
-        "font-size:13px;"
-        "color:gray;"
-        );
-    username->setStyleSheet(
-        "font-size:18px;"
-        "font-weight:bold;"
-        );
-
-    projects->setStyleSheet(
-        "font-size:12px;"
-        "color:gray;"
-        );
 
     leftLayout->addWidget(username);
     leftLayout->addWidget(projects);
 
     QLabel *credits = new QLabel("Creators & Credits");
-    credits->setStyleSheet(
-        "font-size:12px;"
-        "background:white;"
-        "border:2px solid gray;"
-        "border-radius:8px;"
-        );
+
     credits->setFrameStyle(QFrame::Box);
     credits->setMinimumHeight(45);
     credits->setMinimumWidth(250);
@@ -75,11 +52,6 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel *profile = new QLabel();
     profile->setFrameStyle(QFrame::Box);
     profile->setFixedSize(55,55);
-    profile->setStyleSheet(
-        "background:#d9d9d9;"
-        "border:2px solid gray;"
-        "border-radius:30px;"
-        );
 
     profile->setAlignment(Qt::AlignCenter);
     profile->setAlignment(Qt::AlignCenter);
@@ -146,68 +118,21 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     QLabel *helpTitle = new QLabel("How to use");
-    helpTitle->setStyleSheet(
-        "font-size:20px;"
-        "font-weight:bold;"
-        );
 
     QTextEdit *helpBox = new QTextEdit();
 
     helpBox->setReadOnly(true);
 
-    helpBox->setPlaceholderText(
-        "Instructions will appear here..."
+    helpBox->setText(
+        "Welcome to Sync Forge\n\n"
+        "Getting started is simple.\n\n"
+        "• Create a project with the Add button.\n"
+        "• Enter your project details.\n"
+        "• Save your work.\n"
+        "• Track your progress from the dashboard.\n\n"
+        "Or join your team's project using a Team Code.\n\n"
+        "Build smarter. Stay in sync."
         );                 //here need to set instructions
-    setStyleSheet(R"(
-
-QMainWindow{
-    background:#f5f5f5;
-}
-
-QLabel{
-    font-size:15px;
-}
-
-QPushButton{
-
-    background:white;
-
-    border:2px solid #2c2c2c;
-
-    border-radius:5px;
-
-    padding:12px;
-
-    font-size:15px;
-
-    font-weight:bold;
-}
-
-QPushButton:hover{
-
-    background:#dfefff;
-
-}
-
-QPushButton:pressed{
-
-    background:#b8d7ff;
-
-}
-
-QTextEdit{
-
-    border:2px solid gray;
-
-    border-radius:8px;
-
-    background:white;
-
-    padding:10px;
-
-}
-
-)");
 
     mainLayout->addLayout(topLayout);
 

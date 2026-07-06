@@ -25,31 +25,13 @@ DashboardWindow::DashboardWindow(QWidget *parent)
 
     QLabel *title = new QLabel("TaskFlow");
 
-    title->setStyleSheet(
-        "font-size:30px;"
-        "font-weight:bold;"
-        );
-
     mainLayout->addWidget(title);
 
     QFrame *topCard = new QFrame;
 
-    topCard->setStyleSheet(
-        "QFrame{"
-        "background:white;"
-        "border:1px solid #dcdcdc;"
-        "border-radius:12px;"
-        "}"
-        );
-
     QHBoxLayout *topLayout = new QHBoxLayout(topCard);
 
     QLabel *projectName = new QLabel("Hackathon Project");
-
-    projectName->setStyleSheet(
-        "font-size:22px;"
-        "font-weight:bold;"
-        );
 
     QProgressBar *progress = new QProgressBar;
 
@@ -75,20 +57,6 @@ DashboardWindow::DashboardWindow(QWidget *parent)
 
     newProject->setMinimumSize(180,50);
 
-    newProject->setStyleSheet(
-        "QPushButton{"
-        "background:#2563eb;"
-        "color:white;"
-        "font-size:18px;"
-        "font-weight:bold;"
-        "border:none;"
-        "border-radius:10px;"
-        "}"
-        "QPushButton:hover{"
-        "background:#1d4ed8;"
-        "}"
-        );
-
     mainLayout->addStretch();
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
@@ -102,12 +70,6 @@ DashboardWindow::DashboardWindow(QWidget *parent)
     QFrame *bottomBar = new QFrame;
 
     bottomBar->setFixedHeight(55);
-
-    bottomBar->setStyleSheet(
-        "QFrame{"
-        "border-top:1px solid #dcdcdc;"
-        "}"
-        );
 
     QHBoxLayout *bottomLayout = new QHBoxLayout(bottomBar);
 

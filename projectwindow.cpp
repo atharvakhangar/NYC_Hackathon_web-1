@@ -35,17 +35,7 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     QLabel *projectName = new QLabel("Hackathon Project");
 
-    projectName->setStyleSheet(
-        "font-size:24px;"
-        "font-weight:bold;"
-        );
-
     QLabel *projectCode = new QLabel("Code : PJ-4827");
-
-    projectCode->setStyleSheet(
-        "font-size:16px;"
-        "color:gray;"
-        );
 
     headerLayout->addWidget(projectName);
     headerLayout->addStretch();
@@ -61,13 +51,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     sidebar->setFixedWidth(230);
 
-    sidebar->setStyleSheet(
-        "QFrame{"
-        "background:#f4f4f4;"
-        "border-right:1px solid #d0d0d0;"
-        "}"
-        );
-
     QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
 
     sidebarLayout->setContentsMargins(15,15,15,15);
@@ -75,11 +58,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
     sidebarLayout->setSpacing(12);
 
     QLabel *title = new QLabel("Project Setup");
-
-    title->setStyleSheet(
-        "font-size:20px;"
-        "font-weight:bold;"
-        );
 
     sidebarLayout->addWidget(title);
 
@@ -104,20 +82,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
     {
         button->setMinimumHeight(45);
 
-        button->setStyleSheet(
-            "QPushButton{"
-            "background:white;"
-            "border:none;"
-            "border-radius:8px;"
-            "text-align:left;"
-            "padding-left:15px;"
-            "font-size:15px;"
-            "}"
-            "QPushButton:hover{"
-            "background:#dbeafe;"
-            "}"
-            );
-
         sidebarLayout->addWidget(button);
     }
 
@@ -134,20 +98,11 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     QLabel *pageTitle = new QLabel("Project Name");
 
-    pageTitle->setStyleSheet(
-        "font-size:28px;"
-        "font-weight:bold;"
-        );
-
     contentLayout->addWidget(pageTitle);
 
     contentLayout->addSpacing(20);
 
     QLabel *nameLabel = new QLabel("Project Name");
-
-    nameLabel->setStyleSheet(
-        "font-size:15px;"
-        );
 
     QLineEdit *projectNameInput = new QLineEdit;
 
@@ -162,10 +117,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
     contentLayout->addSpacing(25);
 
     QLabel *descriptionLabel = new QLabel("Project Description (Optional)");
-
-    descriptionLabel->setStyleSheet(
-        "font-size:15px;"
-        );
 
     QTextEdit *descriptionInput = new QTextEdit;
 
@@ -213,22 +164,12 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     QLabel *workflowTitle = new QLabel("Workflow");
 
-    workflowTitle->setStyleSheet(
-        "font-size:28px;"
-        "font-weight:bold;"
-        );
-
     workflowLayout->addWidget(workflowTitle);
 
     workflowLayout->addSpacing(20);
 
     QLabel *workflowInfo = new QLabel(
         "Select the phases you want in your project."
-        );
-
-    workflowInfo->setStyleSheet(
-        "font-size:15px;"
-        "color:gray;"
         );
 
     workflowLayout->addWidget(workflowInfo);
@@ -277,20 +218,11 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     QLabel *deadlineTitle = new QLabel("Project Deadline");
 
-    deadlineTitle->setStyleSheet(
-        "font-size:28px;"
-        "font-weight:bold;"
-        );
-
     deadlineLayout->addWidget(deadlineTitle);
 
     deadlineLayout->addSpacing(20);
 
     QLabel *deadlineLabel = new QLabel("Submission Deadline");
-
-    deadlineLabel->setStyleSheet(
-        "font-size:15px;"
-        );
 
     QDateEdit *deadlineInput = new QDateEdit;
 
@@ -332,22 +264,12 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     QLabel *codeTitle = new QLabel("Project Code");
 
-    codeTitle->setStyleSheet(
-        "font-size:28px;"
-        "font-weight:bold;"
-        );
-
     codeLayout->addWidget(codeTitle);
 
     codeLayout->addSpacing(20);
 
     QLabel *codeInfo = new QLabel(
         "Share this code with teammates so they can join your project."
-        );
-
-    codeInfo->setStyleSheet(
-        "font-size:15px;"
-        "color:gray;"
         );
 
     codeLayout->addWidget(codeInfo);
@@ -360,33 +282,11 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     projectCodeLabel->setMinimumHeight(70);
 
-    projectCodeLabel->setStyleSheet(
-        "font-size:32px;"
-        "font-weight:bold;"
-        "border:2px solid #2563eb;"
-        "border-radius:12px;"
-        "background:white;"
-        );
-
     codeLayout->addWidget(projectCodeLabel);
 
     QPushButton *copyButton = new QPushButton("Copy Code");
 
     copyButton->setMinimumHeight(40);
-
-    copyButton->setStyleSheet(
-        "QPushButton{"
-        "background:#2563eb;"
-        "color:white;"
-        "border:none;"
-        "border-radius:8px;"
-        "font-size:15px;"
-        "padding:8px;"
-        "}"
-        "QPushButton:hover{"
-        "background:#1d4ed8;"
-        "}"
-        );
 
     codeLayout->addSpacing(15);
 
@@ -424,21 +324,11 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     QLabel *overviewTitle = new QLabel("Overview");
 
-    overviewTitle->setStyleSheet(
-        "font-size:28px;"
-        "font-weight:bold;"
-        );
-
     overviewLayout->addWidget(overviewTitle);
 
     overviewLayout->addSpacing(20);
 
     QLabel *summaryTitle = new QLabel("Project Summary");
-
-    summaryTitle->setStyleSheet(
-        "font-size:18px;"
-        "font-weight:bold;"
-        );
 
     overviewLayout->addWidget(summaryTitle);
 
@@ -455,14 +345,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     summary->setWordWrap(true);
 
-    summary->setStyleSheet(
-        "font-size:15px;"
-        "border:1px solid lightgray;"
-        "border-radius:10px;"
-        "padding:15px;"
-        "background:white;"
-        );
-
     overviewLayout->addWidget(summary);
 
     overviewLayout->addStretch();
@@ -475,19 +357,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     overviewBack->setMinimumHeight(40);
     finishButton->setMinimumHeight(40);
-
-    finishButton->setStyleSheet(
-        "QPushButton{"
-        "background:#16a34a;"
-        "color:white;"
-        "border:none;"
-        "border-radius:8px;"
-        "font-size:15px;"
-        "}"
-        "QPushButton:hover{"
-        "background:#15803d;"
-        "}"
-        );
 
     overviewNavigation->addWidget(overviewBack);
 
@@ -573,33 +442,6 @@ ProjectWindow::ProjectWindow(QWidget *parent)
             {
                 content->setCurrentIndex(4);
             });
-
-    backButton->setStyleSheet(
-        "QPushButton{"
-        "background:white;"
-        "border:1px solid lightgray;"
-        "border-radius:8px;"
-        "font-size:15px;"
-        "padding:8px;"
-        "}"
-        "QPushButton:hover{"
-        "background:#eeeeee;"
-        "}"
-        );
-
-    nextButton->setStyleSheet(
-        "QPushButton{"
-        "background:#2563eb;"
-        "color:white;"
-        "border:none;"
-        "border-radius:8px;"
-        "font-size:15px;"
-        "padding:8px;"
-        "}"
-        "QPushButton:hover{"
-        "background:#1d4ed8;"
-        "}"
-        );
 }
 
 ProjectWindow::~ProjectWindow()
