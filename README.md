@@ -1,4 +1,7 @@
 <h1 align="center">Team Beta Code - Web-01</h1>
+<p align="center">
+  <img src="hackathon.jpeg" alt="Logo" width=250">
+</p>
 
 # Project Title - SynForge 
 ## Problem Statement
