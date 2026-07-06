@@ -24,3 +24,10 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    ../logo.png \
+    logo.png
+
+RESOURCES += \
+    resources.qrc

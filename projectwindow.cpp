@@ -1,4 +1,5 @@
 #include "projectwindow.h"
+#include "dashboardwindow.h"
 
 #include <QList>
 #include <QWidget>
@@ -541,7 +542,11 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     connect(finishButton, &QPushButton::clicked, this, [=]()
             {
-                finishButton->setText("Project Created");
+                DashboardWindow *dashboard = new DashboardWindow;
+
+                dashboard->show();
+
+                this->close();
             });
 
     connect(nameButton, &QPushButton::clicked, this, [=]()
