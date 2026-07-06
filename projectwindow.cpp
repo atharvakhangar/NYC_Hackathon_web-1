@@ -10,9 +10,11 @@
 #include "qlineedit.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-
+#include <QDateEdit>
 #include <QStackedWidget>
 #include <QListWidget>
+#include <QApplication>
+#include <QClipboard>
 
 ProjectWindow::ProjectWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -266,6 +268,256 @@ ProjectWindow::ProjectWindow(QWidget *parent)
 
     content->addWidget(pageWorkflow);
 
+    QWidget *pageDeadline = new QWidget;
+
+    QVBoxLayout *deadlineLayout = new QVBoxLayout(pageDeadline);
+
+    deadlineLayout->setContentsMargins(30,30,30,30);
+
+    QLabel *deadlineTitle = new QLabel("Project Deadline");
+
+    deadlineTitle->setStyleSheet(
+        "font-size:28px;"
+        "font-weight:bold;"
+        );
+
+    deadlineLayout->addWidget(deadlineTitle);
+
+    deadlineLayout->addSpacing(20);
+
+    QLabel *deadlineLabel = new QLabel("Submission Deadline");
+
+    deadlineLabel->setStyleSheet(
+        "font-size:15px;"
+        );
+
+    QDateEdit *deadlineInput = new QDateEdit;
+
+    deadlineInput->setCalendarPopup(true);
+
+    deadlineInput->setMinimumHeight(40);
+
+    deadlineLayout->addWidget(deadlineLabel);
+
+    deadlineLayout->addWidget(deadlineInput);
+
+    deadlineLayout->addStretch();
+
+    QHBoxLayout *deadlineNavigation = new QHBoxLayout;
+
+    QPushButton *deadlineBack = new QPushButton("← Back");
+
+    QPushButton *deadlineContinue = new QPushButton("Continue →");
+
+    deadlineBack->setMinimumHeight(40);
+
+    deadlineContinue->setMinimumHeight(40);
+
+    deadlineNavigation->addWidget(deadlineBack);
+
+    deadlineNavigation->addStretch();
+
+    deadlineNavigation->addWidget(deadlineContinue);
+
+    deadlineLayout->addLayout(deadlineNavigation);
+
+    content->addWidget(pageDeadline);
+
+    QWidget *pageCode = new QWidget;
+
+    QVBoxLayout *codeLayout = new QVBoxLayout(pageCode);
+
+    codeLayout->setContentsMargins(30,30,30,30);
+
+    QLabel *codeTitle = new QLabel("Project Code");
+
+    codeTitle->setStyleSheet(
+        "font-size:28px;"
+        "font-weight:bold;"
+        );
+
+    codeLayout->addWidget(codeTitle);
+
+    codeLayout->addSpacing(20);
+
+    QLabel *codeInfo = new QLabel(
+        "Share this code with teammates so they can join your project."
+        );
+
+    codeInfo->setStyleSheet(
+        "font-size:15px;"
+        "color:gray;"
+        );
+
+    codeLayout->addWidget(codeInfo);
+
+    codeLayout->addSpacing(20);
+
+    QLabel *projectCodeLabel = new QLabel("PJ-4827");
+
+    projectCodeLabel->setAlignment(Qt::AlignCenter);
+
+    projectCodeLabel->setMinimumHeight(70);
+
+    projectCodeLabel->setStyleSheet(
+        "font-size:32px;"
+        "font-weight:bold;"
+        "border:2px solid #2563eb;"
+        "border-radius:12px;"
+        "background:white;"
+        );
+
+    codeLayout->addWidget(projectCodeLabel);
+
+    QPushButton *copyButton = new QPushButton("Copy Code");
+
+    copyButton->setMinimumHeight(40);
+
+    copyButton->setStyleSheet(
+        "QPushButton{"
+        "background:#2563eb;"
+        "color:white;"
+        "border:none;"
+        "border-radius:8px;"
+        "font-size:15px;"
+        "padding:8px;"
+        "}"
+        "QPushButton:hover{"
+        "background:#1d4ed8;"
+        "}"
+        );
+
+    codeLayout->addSpacing(15);
+
+    codeLayout->addWidget(copyButton, 0, Qt::AlignCenter);
+
+    connect(copyButton, &QPushButton::clicked, this, [=]()
+            {
+                QApplication::clipboard()->setText(projectCodeLabel->text());
+                copyButton->setText("Copied!");
+            });
+
+    codeLayout->addStretch();
+
+    QHBoxLayout *codeNavigation = new QHBoxLayout;
+
+    QPushButton *codeBack = new QPushButton("← Back");
+    QPushButton *codeContinue = new QPushButton("Continue →");
+
+    codeBack->setMinimumHeight(40);
+    codeContinue->setMinimumHeight(40);
+
+    codeNavigation->addWidget(codeBack);
+    codeNavigation->addStretch();
+    codeNavigation->addWidget(codeContinue);
+
+    codeLayout->addLayout(codeNavigation);
+
+    content->addWidget(pageCode);
+
+    QWidget *pageOverview = new QWidget;
+
+    QVBoxLayout *overviewLayout = new QVBoxLayout(pageOverview);
+
+    overviewLayout->setContentsMargins(30,30,30,30);
+
+    QLabel *overviewTitle = new QLabel("Overview");
+
+    overviewTitle->setStyleSheet(
+        "font-size:28px;"
+        "font-weight:bold;"
+        );
+
+    overviewLayout->addWidget(overviewTitle);
+
+    overviewLayout->addSpacing(20);
+
+    QLabel *summaryTitle = new QLabel("Project Summary");
+
+    summaryTitle->setStyleSheet(
+        "font-size:18px;"
+        "font-weight:bold;"
+        );
+
+    overviewLayout->addWidget(summaryTitle);
+
+    overviewLayout->addSpacing(15);
+
+    QLabel *summary = new QLabel(
+        "Review your project before creating it.\n\n"
+        "• Project Name\n"
+        "• Selected Workflow\n"
+        "• Deadline\n"
+        "• Project Code\n\n"
+        "Backend integration coming soon."
+        );
+
+    summary->setWordWrap(true);
+
+    summary->setStyleSheet(
+        "font-size:15px;"
+        "border:1px solid lightgray;"
+        "border-radius:10px;"
+        "padding:15px;"
+        "background:white;"
+        );
+
+    overviewLayout->addWidget(summary);
+
+    overviewLayout->addStretch();
+
+    QHBoxLayout *overviewNavigation = new QHBoxLayout;
+
+    QPushButton *overviewBack = new QPushButton("← Back");
+
+    QPushButton *finishButton = new QPushButton("Create Project");
+
+    overviewBack->setMinimumHeight(40);
+    finishButton->setMinimumHeight(40);
+
+    finishButton->setStyleSheet(
+        "QPushButton{"
+        "background:#16a34a;"
+        "color:white;"
+        "border:none;"
+        "border-radius:8px;"
+        "font-size:15px;"
+        "}"
+        "QPushButton:hover{"
+        "background:#15803d;"
+        "}"
+        );
+
+    overviewNavigation->addWidget(overviewBack);
+
+    overviewNavigation->addStretch();
+
+    overviewNavigation->addWidget(finishButton);
+
+    overviewLayout->addLayout(overviewNavigation);
+
+    content->addWidget(pageOverview);
+
+    connect(deadlineContinue, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(3);
+            });
+
+    connect(codeBack, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(2);
+            });
+
+    connect(workflowContinue, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(2);
+            });
+
+    connect(deadlineBack, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(1);
+            });
+
     bodyLayout->addWidget(content);
     connect(nextButton, &QPushButton::clicked, this, [=]()
             {
@@ -275,6 +527,46 @@ ProjectWindow::ProjectWindow(QWidget *parent)
     connect(workflowBack, &QPushButton::clicked, this, [=]()
             {
                 content->setCurrentIndex(0);
+            });
+
+    connect(codeContinue, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(4);
+            });
+
+    connect(overviewBack, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(3);
+            });
+
+    connect(finishButton, &QPushButton::clicked, this, [=]()
+            {
+                finishButton->setText("Project Created");
+            });
+
+    connect(nameButton, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(0);
+            });
+
+    connect(eventButton, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(1);
+            });
+
+    connect(deadlineButton, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(2);
+            });
+
+    connect(codeButton, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(3);
+            });
+
+    connect(overviewButton, &QPushButton::clicked, this, [=]()
+            {
+                content->setCurrentIndex(4);
             });
 
     backButton->setStyleSheet(
